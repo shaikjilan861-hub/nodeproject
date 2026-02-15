@@ -8,6 +8,8 @@ const getAllUser=async(req, res) => {
   res.json(user);   
 };
 
+
+
 const register=async(req,res)=>{
     const {name,email,password,role}=req.body;
      const existingUser = await User.findOne({ email });
@@ -45,4 +47,3 @@ const login=async(req,res)=>{
 }
 
 module.exports = {getAllUser,register,login}
-

@@ -1,23 +1,29 @@
 const express = require('express');
-const mongoose=require("mongoose");
+const connectDB=require("./connection");
 const router=require("./routes/user");
-const {seedAdmin}=require("./utils/seedAdmin");
+const helmet = require("helmet");
+
+const { swaggerUi, specs } = require("./src/docs/swagger");
 
 require("dotenv").config();
 
 const app = express();
 
+
+
 const PORT = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(MONGO_URL)
-.then(async()=>{
-  console.log("MongoDB connected");
-  await seedAdmin();
-});
+connectDB(MONGO_URL);
+
 
 app.use(express.json());
 
+
+
+app.use(helmet());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 app.use('/user',router );
 
 
