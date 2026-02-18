@@ -6,7 +6,7 @@ const seedAdmin=async(req,res)=>{
      
      const adminExist = await User.findOne({ email : "admin@gmail.com"});
     if(!adminExist){
-        // 👉 define default password here
+        //  define default password here
       const defaultPassword = "admin123";
 
       // Hash password

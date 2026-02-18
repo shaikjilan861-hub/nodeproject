@@ -17,7 +17,11 @@ const userSchema=new mongoose.Schema({
      role: {
     type: String,
     default: "user"
-    }
+    },
+    profileImage: {
+    type: String,
+    default: "",
+  },
 });
 
 module.exports=mongoose.model("User",userSchema);
