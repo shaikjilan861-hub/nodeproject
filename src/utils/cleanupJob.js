@@ -14,6 +14,7 @@ cron.schedule("0 0 * * *", () => {
       return;
     }
 
+
     files.forEach((file) => {
       const filePath = path.join(uploadDir, file);
 
@@ -27,7 +28,7 @@ cron.schedule("0 0 * * *", () => {
         if (fileAge > 24 * 60 * 60 * 1000) {
           fs.unlink(filePath, (err) => {
             if (!err) {
-              console.log("Deleted old file:", file);
+              console.log("Deleted oldd file:", file);
             }
           });
         }
