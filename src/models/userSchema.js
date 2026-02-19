@@ -22,6 +22,8 @@ const userSchema=new mongoose.Schema({
     type: String,
     default: "",
   },
+   otp: String,
+  otpExpire: Date
 });
 
 module.exports=mongoose.model("User",userSchema);

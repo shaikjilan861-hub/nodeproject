@@ -7,6 +7,7 @@ const verifyToken = (req, res, next) => {
     const token =
       req.headers.authorization?.split(" ")[1] ||
       req.query.token;
+console.log("AUTH:", req.headers.authorization);
 
     // check token exists
     if (!token) {

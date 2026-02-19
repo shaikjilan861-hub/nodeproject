@@ -27,7 +27,8 @@ app.use("/uploads", express.static("uploads"));
 
 app.use("/api", swaggerUi.serve, swaggerUi.setup(specs));
 
-app.use('/user',require("./routes/user") );
+app.use('/',require("./routes/user") );
+app.use('/user',require("./routes/collection") );
 
 app.listen(PORT, () => {
   console.log(`Server started at PORT : ${PORT}`);
